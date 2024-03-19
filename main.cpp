@@ -1,5 +1,7 @@
 #include <iostream>
+#include "Vehicle.h"
 
 int main(){
-    std::cout<<"Hello from a basic project"<<std::endl;
+
+    return 0;
 }
