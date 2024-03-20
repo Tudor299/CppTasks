@@ -17,11 +17,11 @@ Sportcar::Sportcar(int VIN_Sportcar){
     hp = 330;
     options = "full";
     VIN = &VIN_Sportcar;
-    std::cout<<"Sportcar()"<<std::endl;
+    std::cout<<"Sportcar(<VIN>)"<<std::endl;
 }
 
 Sportcar::~Sportcar(){
-    std::cout<<"~Sportcar()"<<std::endl;
+    std::cout<<"~Sportcar(<VIN>)"<<std::endl;
 }
 
 void Sportcar::getFuel(){

@@ -11,7 +11,6 @@ protected:
     int *VIN;
 public:
     Vehicle();
-    Vehicle(int VIN_Vehicle);
     ~Vehicle();
     virtual void getFuel() = 0;
     virtual void getBody() = 0;
