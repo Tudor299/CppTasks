@@ -3,6 +3,7 @@
 #include <iostream>
 
 class Motorbike:Vehicle{
+    static int count;
 public:
     Motorbike();
     Motorbike(int VIN_Moto);
