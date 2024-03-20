@@ -24,26 +24,26 @@ Lorry::~Lorry(){
     std::cout<<"~Lorry(<VIN>)"<<std::endl;
 }
 
-void Lorry::getFuel(){
+void Lorry::getFuel() const{
     std::cout<<fuel<<std::endl;
 }
 
-void Lorry::getBody(){
+void Lorry::getBody() const{
     std::cout<<body<<std::endl;
 }
 
-void Lorry::getDrivetrain(){
+void Lorry::getDrivetrain() const{
     std::cout<<drivetrain<<std::endl;
 }
 
-void Lorry::getHp(){
+void Lorry::getHp() const{
     std::cout<<hp<<std::endl;
 }
 
-void Lorry::getOptions(){
+void Lorry::getOptions() const{
     std::cout<<options<<std::endl;
 }
 
-void Lorry::getVIN(){
+void Lorry::getVIN() const{
     std::cout<<*VIN<<std::endl;
 }

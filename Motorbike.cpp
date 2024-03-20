@@ -36,26 +36,26 @@ Motorbike::~Motorbike(){
     std::cout<<"~Motorbike(<VIN>)"<<std::endl;
 }
 
-void Motorbike::getFuel(){
+void Motorbike::getFuel() const{
     std::cout<<fuel<<std::endl;
 }
 
-void Motorbike::getBody(){
+void Motorbike::getBody() const{
     std::cout<<body<<std::endl;
 }
 
-void Motorbike::getDrivetrain(){
+void Motorbike::getDrivetrain() const{
     std::cout<<drivetrain<<std::endl;
 }
 
-void Motorbike::getHp(){
+void Motorbike::getHp() const{
     std::cout<<hp<<std::endl;
 }
 
-void Motorbike::getOptions(){
+void Motorbike::getOptions() const{
     std::cout<<options<<std::endl;
 }
 
-void Motorbike::getVIN(){
+void Motorbike::getVIN() const{
     std::cout<<*VIN<<std::endl;
 }

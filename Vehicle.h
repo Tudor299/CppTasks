@@ -12,10 +12,10 @@ protected:
 public:
     Vehicle();
     ~Vehicle();
-    virtual void getFuel() = 0;
-    virtual void getBody() = 0;
-    virtual void getDrivetrain() = 0;
-    virtual void getHp() = 0;
-    virtual void getOptions() = 0;
-    virtual void getVIN() = 0;
+    virtual void getFuel() const = 0;
+    virtual void getBody() const = 0;
+    virtual void getDrivetrain() const = 0;
+    virtual void getHp() const = 0;
+    virtual void getOptions() const = 0;
+    virtual void getVIN() const = 0;
 };

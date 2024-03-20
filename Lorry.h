@@ -7,10 +7,10 @@ public:
     Lorry();
     Lorry(int VIN_Lorry);
     ~Lorry();
-    void getFuel();
-    void getBody();
-    void getDrivetrain();
-    void getHp();
-    void getOptions();
-    void getVIN();
+    void getFuel() const;
+    void getBody() const;
+    void getDrivetrain() const;
+    void getHp() const;
+    void getOptions() const;
+    void getVIN() const;
 };

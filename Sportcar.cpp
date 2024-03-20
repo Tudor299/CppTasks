@@ -24,26 +24,26 @@ Sportcar::~Sportcar(){
     std::cout<<"~Sportcar(<VIN>)"<<std::endl;
 }
 
-void Sportcar::getFuel(){
+void Sportcar::getFuel() const{
     std::cout<<fuel<<std::endl;
 }
 
-void Sportcar::getBody(){
+void Sportcar::getBody() const{
     std::cout<<body<<std::endl;
 }
 
-void Sportcar::getDrivetrain(){
+void Sportcar::getDrivetrain() const{
     std::cout<<drivetrain<<std::endl;
 }
 
-void Sportcar::getHp(){
+void Sportcar::getHp() const{
     std::cout<<hp<<std::endl;
 }
 
-void Sportcar::getOptions(){
+void Sportcar::getOptions() const{
     std::cout<<options<<std::endl;
 }
 
-void Sportcar::getVIN(){
+void Sportcar::getVIN() const{
     std::cout<<*VIN<<std::endl;
 }
