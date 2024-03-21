@@ -7,7 +7,9 @@ public:
     Sportcar();
     Sportcar(int VIN_Sportcar);
     Sportcar(const Sportcar &obj);
+    Sportcar(Sportcar &&obj);
     Sportcar & operator=(const Sportcar &obj);
+    Sportcar & operator=(Sportcar &&obj);
     ~Sportcar();
     void getFuel() const;
     void getBody() const;

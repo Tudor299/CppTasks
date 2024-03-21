@@ -40,6 +40,17 @@ Motorbike::Motorbike(const Motorbike &obj){
     VIN = new int(*obj.VIN);
 }
 
+Motorbike::Motorbike(Motorbike &&obj){
+    std::cout<<"Motorbike move constructor"<<std::endl;
+    fuel = obj.fuel;
+    body = obj.body;
+    drivetrain = obj.drivetrain;
+    hp = obj.hp;
+    options = obj.options;
+    VIN = obj.VIN;
+    obj.VIN = nullptr;
+}
+
 Motorbike &Motorbike::operator=(const Motorbike &obj){
     std::cout<<"operator="<<std::endl;
     if(this != &obj){
@@ -51,6 +62,22 @@ Motorbike &Motorbike::operator=(const Motorbike &obj){
         VIN = NULL;
         delete VIN;
         VIN = new int(*obj.VIN);
+    }
+    return *this;
+}
+
+Motorbike &Motorbike::operator=(Motorbike &&obj){
+    std::cout<<"Motorbike move assignment operator"<<std::endl;
+    if(this != &obj){
+        fuel = obj.fuel;
+        body = obj.body;
+        drivetrain = obj.drivetrain;
+        hp = obj.hp;
+        options = obj.options;
+        VIN = NULL;
+        delete VIN;
+        VIN = obj.VIN;
+        obj.VIN = nullptr;
     }
     return *this;
 }

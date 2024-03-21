@@ -29,6 +29,17 @@ Sportcar::Sportcar(const Sportcar &obj){
     VIN = new int(*obj.VIN);
 }
 
+Sportcar::Sportcar(Sportcar &&obj){
+    std::cout<<"Sportcar move constructor"<<std::endl;
+    fuel = obj.fuel;
+    body = obj.body;
+    drivetrain = obj.drivetrain;
+    hp = obj.hp;
+    options = obj.options;
+    VIN = obj.VIN;
+    obj.VIN = nullptr;
+}
+
 Sportcar &Sportcar::operator=(const Sportcar &obj){
     std::cout<<"operator="<<std::endl;
     if(this != &obj){
@@ -40,6 +51,22 @@ Sportcar &Sportcar::operator=(const Sportcar &obj){
         VIN = NULL;
         delete VIN;
         VIN = new int(*obj.VIN);
+    }
+    return *this;
+}
+
+Sportcar &Sportcar::operator=(Sportcar &&obj){
+    std::cout<<"Sportcar move assignment operator"<<std::endl;
+    if(this != &obj){
+        fuel = obj.fuel;
+        body = obj.body;
+        drivetrain = obj.drivetrain;
+        hp = obj.hp;
+        options = obj.options;
+        VIN = NULL;
+        delete VIN;
+        VIN = obj.VIN;
+        obj.VIN = nullptr;
     }
     return *this;
 }

@@ -29,6 +29,17 @@ Lorry::Lorry(const Lorry &obj){
     VIN = new int(*obj.VIN);
 }
 
+Lorry::Lorry(Lorry &&obj){
+    std::cout<<"Lorry move constructor"<<std::endl;
+    fuel = obj.fuel;
+    body = obj.body;
+    drivetrain = obj.drivetrain;
+    hp = obj.hp;
+    options = obj.options;
+    VIN = obj.VIN;
+    obj.VIN = nullptr;
+}
+
 Lorry &Lorry::operator=(const Lorry &obj){
     std::cout<<"operator="<<std::endl;
     if(this != &obj){
@@ -44,6 +55,21 @@ Lorry &Lorry::operator=(const Lorry &obj){
     return *this;
 }
 
+Lorry &Lorry::operator=(Lorry &&obj){
+    std::cout<<"Lorry move assignment operator"<<std::endl;
+    if(this != &obj){
+        fuel = obj.fuel;
+        body = obj.body;
+        drivetrain = obj.drivetrain;
+        hp = obj.hp;
+        options = obj.options;
+        VIN = NULL;
+        delete VIN;
+        VIN = obj.VIN;
+        obj.VIN = nullptr;
+    }
+    return *this;
+}
 
 Lorry::~Lorry(){
     VIN = NULL;
