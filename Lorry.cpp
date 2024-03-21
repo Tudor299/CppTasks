@@ -1,5 +1,7 @@
 #include "Lorry.h"
 
+int Lorry::countLorries = 0;
+
 Lorry::Lorry(){
     fuel = "unknown";
     body = "unknown";
@@ -8,6 +10,7 @@ Lorry::Lorry(){
     options = "unknown";
     VIN = new int;
     std::cout<<"Lorry()"<<std::endl;
+    countLorries++;
 }
 
 Lorry::Lorry(int VIN_Lorry){
@@ -18,6 +21,7 @@ Lorry::Lorry(int VIN_Lorry){
     options = "premium";
     VIN = &VIN_Lorry;
     std::cout<<"Lorry(<VIN>)"<<std::endl;
+    countLorries++;
 }
 
 Lorry::Lorry(const Lorry &obj){
@@ -27,6 +31,7 @@ Lorry::Lorry(const Lorry &obj){
     hp = obj.hp;
     options = obj.options;
     VIN = new int(*obj.VIN);
+    countLorries++;
 }
 
 Lorry::Lorry(Lorry &&obj){
@@ -38,10 +43,10 @@ Lorry::Lorry(Lorry &&obj){
     options = obj.options;
     VIN = obj.VIN;
     obj.VIN = nullptr;
+    countLorries++;
 }
 
 Lorry &Lorry::operator=(const Lorry &obj){
-    std::cout<<"operator="<<std::endl;
     if(this != &obj){
         fuel = obj.fuel;
         body = obj.body;
@@ -72,9 +77,10 @@ Lorry &Lorry::operator=(Lorry &&obj){
 }
 
 Lorry::~Lorry(){
+    countLorries--;
     VIN = NULL;
     delete VIN;
-    std::cout<<"~Lorry(<VIN>)"<<std::endl;
+    std::cout<<"~Lorry()"<<std::endl;
 }
 
 void Lorry::getFuel() const{

@@ -2,6 +2,7 @@
 #include "Sportcar.h"
 #include "Lorry.h"
 #include "Motorbike.h"
+#include "Car.h"
 
 int main(){
     int VIN_sportcar1 = 123456, VIN_truck1 = 123789, VIN_truck2 = 654321, VIN_moto1 = 456789, VIN_moto2 = 987654, bikes=0;
@@ -12,5 +13,10 @@ int main(){
     Motorbike Yamaha(VIN_moto2);
     Motorbike Honda(VIN_moto2);
     Sportcar BMW(Audi);
+    Sportcar Mercedes;
+    Mercedes = BMW;
+    Car::staticGetLorries();
+    Car::staticGetMotos();
+    Car::staticGetSportcars();
     return 0;
 }

@@ -1,8 +1,9 @@
 #pragma once
 #include "Vehicle.h"
-#include <iostream>
 
 class Lorry:Vehicle{
+protected:
+    static int countLorries;
 public:
     Lorry();
     Lorry(int VIN_Lorry);

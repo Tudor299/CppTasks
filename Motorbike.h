@@ -1,9 +1,10 @@
 #pragma once
 #include "Vehicle.h"
-#include <iostream>
 
 class Motorbike:Vehicle{
     static int count;
+protected:
+    static int countMotos;
 public:
     Motorbike();
     Motorbike(int VIN_Moto);

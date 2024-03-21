@@ -1,5 +1,7 @@
 #include "Sportcar.h"
 
+int Sportcar::countSportcars = 0;
+
 Sportcar::Sportcar(){
     fuel = "unknown";
     body = "unknown";
@@ -8,6 +10,7 @@ Sportcar::Sportcar(){
     options = "unknown";
     VIN = new int;
     std::cout<<"Sportcar()"<<std::endl;
+    countSportcars++;
 }
 
 Sportcar::Sportcar(int VIN_Sportcar){
@@ -18,6 +21,7 @@ Sportcar::Sportcar(int VIN_Sportcar){
     options = "full";
     VIN = &VIN_Sportcar;
     std::cout<<"Sportcar(<VIN>)"<<std::endl;
+    countSportcars++;
 }
 
 Sportcar::Sportcar(const Sportcar &obj){
@@ -27,6 +31,7 @@ Sportcar::Sportcar(const Sportcar &obj){
     hp = obj.hp;
     options = obj.options;
     VIN = new int(*obj.VIN);
+    countSportcars++;
 }
 
 Sportcar::Sportcar(Sportcar &&obj){
@@ -38,10 +43,10 @@ Sportcar::Sportcar(Sportcar &&obj){
     options = obj.options;
     VIN = obj.VIN;
     obj.VIN = nullptr;
+    countSportcars++;
 }
 
 Sportcar &Sportcar::operator=(const Sportcar &obj){
-    std::cout<<"operator="<<std::endl;
     if(this != &obj){
         fuel = obj.fuel;
         body = obj.body;
@@ -72,9 +77,10 @@ Sportcar &Sportcar::operator=(Sportcar &&obj){
 }
 
 Sportcar::~Sportcar(){
+    countSportcars--;
     VIN = NULL;
     delete VIN;
-    std::cout<<"~Sportcar(<VIN>)"<<std::endl;
+    std::cout<<"~Sportcar()"<<std::endl;
 }
 
 void Sportcar::getFuel() const{

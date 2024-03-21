@@ -1,9 +1,10 @@
 #include "Motorbike.h"
 
 int Motorbike::count = 0;
+int Motorbike::countMotos = 0;
 
 Motorbike::Motorbike(){
-    count++;
+    ++count;
     fuel = "unknown";
     body = "unknown";
     drivetrain = "unknown";
@@ -11,6 +12,7 @@ Motorbike::Motorbike(){
     options = "unknown";
     VIN = new int;
     std::cout<<"Motorbike()"<<std::endl;
+    countMotos++;
 }
 
 Motorbike::Motorbike(int VIN_Moto){
@@ -23,6 +25,7 @@ Motorbike::Motorbike(int VIN_Moto){
         options = "sport";
         VIN = &VIN_Moto;
         std::cout<<"Motorbike(<VIN>)"<<std::endl;
+        countMotos++;
         }
     else
         {
@@ -32,15 +35,18 @@ Motorbike::Motorbike(int VIN_Moto){
 }
 
 Motorbike::Motorbike(const Motorbike &obj){
+    count++;
     fuel = obj.fuel;
     body = obj.body;
     drivetrain = obj.drivetrain;
     hp = obj.hp;
     options = obj.options;
     VIN = new int(*obj.VIN);
+    countMotos++;
 }
 
 Motorbike::Motorbike(Motorbike &&obj){
+    count++;
     std::cout<<"Motorbike move constructor"<<std::endl;
     fuel = obj.fuel;
     body = obj.body;
@@ -49,10 +55,10 @@ Motorbike::Motorbike(Motorbike &&obj){
     options = obj.options;
     VIN = obj.VIN;
     obj.VIN = nullptr;
+    countMotos++;
 }
 
 Motorbike &Motorbike::operator=(const Motorbike &obj){
-    std::cout<<"operator="<<std::endl;
     if(this != &obj){
         fuel = obj.fuel;
         body = obj.body;
@@ -84,9 +90,10 @@ Motorbike &Motorbike::operator=(Motorbike &&obj){
 
 Motorbike::~Motorbike(){
     --count;
+    countMotos--;
     VIN = NULL;
     delete VIN;
-    std::cout<<"~Motorbike(<VIN>)"<<std::endl;
+    std::cout<<"~Motorbike()"<<std::endl;
 }
 
 void Motorbike::getFuel() const{
