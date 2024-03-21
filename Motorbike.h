@@ -7,6 +7,8 @@ class Motorbike:Vehicle{
 public:
     Motorbike();
     Motorbike(int VIN_Moto);
+    Motorbike(const Motorbike &obj);
+    Motorbike & operator=(const Motorbike &obj);
     ~Motorbike();
     void getFuel() const;
     void getBody() const;

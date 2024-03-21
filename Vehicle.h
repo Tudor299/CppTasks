@@ -11,6 +11,8 @@ protected:
     int *VIN;
 public:
     Vehicle();
+    Vehicle(const Vehicle &obj);
+    Vehicle & operator=(const Vehicle &obj);
     ~Vehicle();
     virtual void getFuel() const = 0;
     virtual void getBody() const = 0;

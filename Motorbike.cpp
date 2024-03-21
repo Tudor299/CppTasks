@@ -9,7 +9,7 @@ Motorbike::Motorbike(){
     drivetrain = "unknown";
     hp = 0;
     options = "unknown";
-    VIN = NULL;
+    VIN = new int;
     std::cout<<"Motorbike()"<<std::endl;
 }
 
@@ -31,8 +31,34 @@ Motorbike::Motorbike(int VIN_Moto){
         }
 }
 
+Motorbike::Motorbike(const Motorbike &obj){
+    fuel = obj.fuel;
+    body = obj.body;
+    drivetrain = obj.drivetrain;
+    hp = obj.hp;
+    options = obj.options;
+    VIN = new int(*obj.VIN);
+}
+
+Motorbike &Motorbike::operator=(const Motorbike &obj){
+    std::cout<<"operator="<<std::endl;
+    if(this != &obj){
+        fuel = obj.fuel;
+        body = obj.body;
+        drivetrain = obj.drivetrain;
+        hp = obj.hp;
+        options = obj.options;
+        VIN = NULL;
+        delete VIN;
+        VIN = new int(*obj.VIN);
+    }
+    return *this;
+}
+
 Motorbike::~Motorbike(){
     --count;
+    VIN = NULL;
+    delete VIN;
     std::cout<<"~Motorbike(<VIN>)"<<std::endl;
 }
 

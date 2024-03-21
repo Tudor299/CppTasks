@@ -6,7 +6,7 @@ Lorry::Lorry(){
     drivetrain = "unknown";
     hp = 0;
     options = "unknown";
-    VIN = NULL;
+    VIN = new int;
     std::cout<<"Lorry()"<<std::endl;
 }
 
@@ -20,7 +20,34 @@ Lorry::Lorry(int VIN_Lorry){
     std::cout<<"Lorry(<VIN>)"<<std::endl;
 }
 
+Lorry::Lorry(const Lorry &obj){
+    fuel = obj.fuel;
+    body = obj.body;
+    drivetrain = obj.drivetrain;
+    hp = obj.hp;
+    options = obj.options;
+    VIN = new int(*obj.VIN);
+}
+
+Lorry &Lorry::operator=(const Lorry &obj){
+    std::cout<<"operator="<<std::endl;
+    if(this != &obj){
+        fuel = obj.fuel;
+        body = obj.body;
+        drivetrain = obj.drivetrain;
+        hp = obj.hp;
+        options = obj.options;
+        VIN = NULL;
+        delete VIN;
+        VIN = new int(*obj.VIN);
+    }
+    return *this;
+}
+
+
 Lorry::~Lorry(){
+    VIN = NULL;
+    delete VIN;
     std::cout<<"~Lorry(<VIN>)"<<std::endl;
 }
 
