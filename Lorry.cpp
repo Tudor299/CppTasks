@@ -19,12 +19,13 @@ Lorry::Lorry(int VIN_Lorry){
     drivetrain = "RWD";
     hp = 600;
     options = "premium";
-    VIN = &VIN_Lorry;
+    *VIN = int(VIN_Lorry);
     std::cout<<"Lorry(<VIN>)"<<std::endl;
     countLorries++;
 }
 
 Lorry::Lorry(const Lorry &obj){
+    std::cout<<"Lorry copy constructor"<<std::endl;
     fuel = obj.fuel;
     body = obj.body;
     drivetrain = obj.drivetrain;
@@ -47,6 +48,7 @@ Lorry::Lorry(Lorry &&obj){
 }
 
 Lorry &Lorry::operator=(const Lorry &obj){
+    std::cout<<"Lorry copy assignment operator"<<std::endl;
     if(this != &obj){
         fuel = obj.fuel;
         body = obj.body;

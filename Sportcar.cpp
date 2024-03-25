@@ -19,12 +19,13 @@ Sportcar::Sportcar(int VIN_Sportcar){
     drivetrain = "AWD";
     hp = 330;
     options = "full";
-    VIN = &VIN_Sportcar;
+    *VIN = int(VIN_Sportcar);
     std::cout<<"Sportcar(<VIN>)"<<std::endl;
     countSportcars++;
 }
 
 Sportcar::Sportcar(const Sportcar &obj){
+    std::cout<<"Sportcar copy constructor"<<std::endl;
     fuel = obj.fuel;
     body = obj.body;
     drivetrain = obj.drivetrain;
@@ -47,6 +48,7 @@ Sportcar::Sportcar(Sportcar &&obj){
 }
 
 Sportcar &Sportcar::operator=(const Sportcar &obj){
+    std::cout<<"Sportcar copy assignment operator"<<std::endl;
     if(this != &obj){
         fuel = obj.fuel;
         body = obj.body;

@@ -23,7 +23,7 @@ Motorbike::Motorbike(int VIN_Moto){
         drivetrain = "RWD";
         hp = 200;
         options = "sport";
-        VIN = &VIN_Moto;
+        *VIN = int(VIN_Moto);
         std::cout<<"Motorbike(<VIN>)"<<std::endl;
         countMotos++;
         }
@@ -35,6 +35,7 @@ Motorbike::Motorbike(int VIN_Moto){
 }
 
 Motorbike::Motorbike(const Motorbike &obj){
+    std::cout<<"Motorbike copy constructor"<<std::endl;
     count++;
     fuel = obj.fuel;
     body = obj.body;
@@ -59,6 +60,7 @@ Motorbike::Motorbike(Motorbike &&obj){
 }
 
 Motorbike &Motorbike::operator=(const Motorbike &obj){
+    std::cout<<"Motorbike copy assignment operator"<<std::endl;
     if(this != &obj){
         fuel = obj.fuel;
         body = obj.body;
